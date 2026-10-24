@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mathsy</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="menu.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body data-kok="">
+
+  <header class="ust-menu">
+    <a class="logo" href="index.html">Mathsy</a>
+    <div class="baglantilar">
+      <a href="index.html#anasayfa">Ana Sayfa</a>
+      <a href="index.html#hakkimda">Hakkımda</a>
+      <a href="index.html#yakinda">Yakında</a>
+      <a href="index.html#iletisim">İletişim</a>
+    </div>
+  </header>
+  <aside id="yan-menu" aria-label="Ders notları menüsü">
+    <button id="menu-dugme" type="button" aria-expanded="false" aria-controls="yan-liste" aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <span class="menu-baslik">Ders notları</span>
+    <nav id="yan-liste"></nav>
+  </aside>
+
+  <main>
+
+    <!-- 1) ANA SAYFA -->
+    <section id="anasayfa" class="hero">
+      <div class="hero-icerik">
+        <h1 class="belir">Matematiği keşfet</h1>
+        <p class="alt-baslik belir">[Adın]’ın matematik köşesi</p>
+        <a class="buton belir" href="#hakkimda">Aşağı kaydır</a>
+      </div>
+    </section>
+
+    <!-- 2) HAKKIMDA -->
+    <section id="hakkimda" class="bolum">
+      <div class="icerik">
+        <h2 class="belir">Hakkımda</h2>
+        <div class="iki-sutun">
+          <p class="belir">
+            Ben [Adın]. [Üniversite adı]’nde matematik öğretmenliği 3. sınıf öğrencisiyim.
+            Matematiği neden sevdiğini ya da öğretmen olmak istemeni anlatan birkaç cümleyi buraya yazabilirsin.
+          </p>
+          <div class="panel belir">
+            <h3>İlgi alanlarım</h3>
+            <ul>
+              <li>Matematik öğretimi</li>
+              <li>Web sitesi yapmayı öğrenmek</li>
+              <li>[Kendi ilgi alanın]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) YAKINDA -->
+    <section id="yakinda" class="bolum">
+      <div class="icerik">
+        <h2 class="belir">Yakında</h2>
+        <p class="belir">Günlük bir matematik oyunu üzerinde çalışıyorum. Her gün yeni bir bulmaca, tek bir hedef: gizli sayıyı bulmak.</p>
+        <p class="belir soluk">Hazır olunca burada olacak.</p>
+      </div>
+    </section>
+
+    <!-- 4) İLETİŞİM -->
+    <section id="iletisim" class="bolum">
+      <div class="icerik">
+        <h2 class="belir">İletişim</h2>
+        <p class="belir">Bir sorun, önerin ya da merak ettiğin bir şey varsa bana yazabilirsin.</p>
+        <ul class="belir">
+          <li>E-posta: <a href="mailto:ornek@mail.com">ornek@mail.com</a></li>
+          <li>Instagram: <a href="https://instagram.com/kullanici_adin">@kullanici_adin</a></li>
+        </ul>
+        <a class="buton belir" href="mailto:ornek@mail.com">E-posta gönder</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Mathsy</footer>
+
+</body>
+</html>
