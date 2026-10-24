@@ -1,0 +1,19 @@
+MATHSY SİTESİ
+=============
+index.html            Ana sayfa (Ana Sayfa, Hakkımda, Yakında, İletişim bölümleri)
+style.css             Tüm görünüm (renkler, fontlar, menü boyutları, efektler)
+script.js             Menü ve kaydırma / sayfa çevirme efektleri
+menu.js               Sol menüdeki başlıkların listesi (yeni sayfa eklemek için burası)
+formuller.js          Formül arama (en üstte AI_ADRESI = yapay zekâ sunucusunun adresi)
+sayfalar/             Sol menüden açılan sayfalar
+dosyalar/             İndirilebilir PDF dosyaları (dosya adları dosyalar/BENI-OKU.txt içinde)
+sunucu/               Cloudflare'e yapıştırılan sunucu kodları (siteye YÜKLENMEZ, sadece saklama)
+
+DOLDURULACAK YERLER (index.html)
+- [Adın], [Üniversite adı], [Kendi ilgi alanın]
+- ornek@mail.com  ve  @kullanici_adin
+- style.css başındaki --hero-resmi satırı (BURAYA_RESIM_LINKI) = ana sayfa arka plan resmi
+
+SİTEYİ GÜNCELLEMEK
+Değiştirdiğin dosyayı GitHub'da repo'ya yeniden yükle (Add file > Upload files > Commit changes).
+Ardından siteyi Ctrl + F5 ile yenile.

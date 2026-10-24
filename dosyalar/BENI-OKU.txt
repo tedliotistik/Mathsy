@@ -1,0 +1,9 @@
+Buraya indirilebilir PDF dosyalarını koy.
+Sayfalardaki "Yakında" bağlantıları şu dosya adlarını bekliyor (dosya yoksa bağlantı çalışmaz):
+
+- konu-ozetleri-1.pdf
+- konu-ozetleri-2.pdf
+- konu-ozetleri-3.pdf
+- soru-cozumleri-1.pdf
+- kaynaklar-1.pdf
+- kaynaklar-2.pdf

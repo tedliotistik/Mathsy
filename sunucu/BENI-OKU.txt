@@ -1,0 +1,10 @@
+Bu klasördeki dosyalar siteye yüklenmez; Cloudflare Worker'ına yapıştırılır.
+
+yapay-zeka-sunucusu-ucretsiz.js  -> ŞU AN KULLANILAN (Cloudflare Workers AI, ücretsiz kota)
+yapay-zeka-sunucusu.js           -> İSTEĞE BAĞLI (Claude API, ücretli; Anthropic anahtarı gerekir)
+
+Cloudflare'de gerekli ayarlar (ücretsiz sürüm):
+- Bindings: Workers AI, adı AI
+- Variables: IZINLI_SITE = siteyi açan adresler, virgülle ayrılmış
+  Örn: https://mathsy.net,https://www.mathsy.net
+Yeni alan adı alınca IZINLI_SITE değerine eklemeyi unutma.
