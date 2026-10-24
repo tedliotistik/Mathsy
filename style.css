@@ -21,6 +21,9 @@
   --kapali-yuk: 3cm;     /* kapalıyken uzun kenar */
   --acik-gen: 7.5cm;     /* açıkken kısa kenar */
   --acik-yuk: 15cm;      /* açıkken en fazla yükseklik */
+  --cizgi-gen: 38px;     /* 3 çizginin uzunluğu */
+  --cizgi-kal: 4px;      /* çizgi kalınlığı */
+  --cizgi-bosluk: 7px;   /* çizgiler arası boşluk */
 
   /* ANA SAYFA ARKA PLAN RESMİ: "BURAYA_RESIM_LINKI" yerine
      resmin yolunu ya da linkini yaz. Örnek: url("resimler/arkaplan.jpg") */
@@ -139,7 +142,7 @@ a { color: var(--vurgu); }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: var(--cizgi-bosluk);
   background: none;
   border: 0;
   cursor: pointer;
@@ -149,8 +152,8 @@ a { color: var(--vurgu); }
 
 #menu-dugme span {
   display: block;
-  width: 38px;
-  height: 4px;
+  width: var(--cizgi-gen);
+  height: var(--cizgi-kal);
   border-radius: 2px;
   background: var(--yazi);
   transition: transform 0.35s, opacity 0.25s, background 0.3s;
@@ -159,9 +162,9 @@ a { color: var(--vurgu); }
 #menu-dugme:hover span { background: var(--vurgu); }
 
 /* Açılınca 3 çizgi X olur */
-#yan-menu.acik #menu-dugme span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+#yan-menu.acik #menu-dugme span:nth-child(1) { transform: translateY(calc(var(--cizgi-kal) + var(--cizgi-bosluk))) rotate(45deg); }
 #yan-menu.acik #menu-dugme span:nth-child(2) { opacity: 0; }
-#yan-menu.acik #menu-dugme span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+#yan-menu.acik #menu-dugme span:nth-child(3) { transform: translateY(calc(-1 * (var(--cizgi-kal) + var(--cizgi-bosluk)))) rotate(-45deg); }
 
 .menu-baslik {
   position: absolute;
@@ -378,6 +381,16 @@ footer {
   .baglantilar { gap: 16px; }
   .baglantilar a { font-size: 12px; }
   #yan-menu { top: 64px; }
+  /* Telefonda menü ve 3 çizgi küçülür */
+  :root {
+    --kapali-gen: 1.7cm;
+    --kapali-yuk: 2cm;
+    --acik-gen: 6.2cm;
+    --cizgi-gen: 26px;
+    --cizgi-kal: 3px;
+    --cizgi-bosluk: 5px;
+  }
+  .menu-baslik { font-size: 17px; }
   .iki-sutun { grid-template-columns: 1fr; gap: 24px; }
   .alt-icerik { padding-left: 24px; padding-top: calc(64px + var(--kapali-yuk) + 24px); }
 }
@@ -462,55 +475,43 @@ footer {
 .formul { font-size: 1.2em; overflow-x: auto; }
 .katex-display { overflow-x: auto; overflow-y: hidden; margin: 0.6em 0; }
 
-/* 15) KONU ÖZETLERİ (Formüller sayfası) */
-.alt-icerik h2 { font-size: clamp(26px, 4vw, 36px); margin: 48px 0 16px; }
-
-.konu-karti {
-  margin-bottom: 14px;
-  padding: 4px 24px;
-  border: 1px solid var(--cizgi);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-}
-.konu-karti[open] { border-color: rgba(255, 200, 87, 0.45); }
-
-.konu-karti summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  font-family: var(--font-baslik);
-  font-weight: 600;
-  font-size: 20px;
-  cursor: pointer;
-  list-style: none;
-}
-.konu-karti summary::-webkit-details-marker { display: none; }
-.konu-karti summary::after { content: "+"; color: var(--vurgu); font-size: 26px; }
-.konu-karti[open] summary::after { content: "–"; }
-.konu-karti summary:hover { color: var(--vurgu); }
-.konu-karti > :last-child { margin-bottom: 20px; }
-.konu-karti ul, .konu-karti ol { padding-left: 22px; margin: 0 0 16px; }
-.konu-karti li { margin-bottom: 6px; }
-.konu-karti h3 { margin: 20px 0 8px; }
-
-code {
-  font-family: ui-monospace, Consolas, monospace;
-  font-size: 0.92em;
-  padding: 1px 7px;
-  border-radius: 5px;
-  background: rgba(255, 200, 87, 0.12);
-  color: var(--vurgu);
+/* 15) SAYFA ÇEVİRME (yan menüdeki başlıklara tıklayınca) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
 }
 
-.tablo-kap { overflow-x: auto; }
-.kural-tablosu { width: 100%; border-collapse: collapse; }
-.kural-tablosu th, .kural-tablosu td {
-  padding: 10px 12px;
-  text-align: left;
-  vertical-align: top;
-  border-bottom: 1px solid var(--cizgi);
+::view-transition-group(root) { animation-duration: 0.9s; }
+
+/* Eski sayfa sol kenarından menteşelenip döner, altından yeni sayfa görünür */
+::view-transition-old(root) {
+  z-index: 2;
+  transform-origin: left center;
+  mix-blend-mode: normal;
+  animation: sayfaCevir 0.9s ease-in-out both;
 }
-.kural-tablosu thead th { color: var(--soluk); font-size: 14px; font-weight: 600; }
-.kural-tablosu tbody th { white-space: nowrap; color: var(--vurgu); font-weight: 600; }
-.kaynak { font-size: 14px; }
+
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation: sayfaGel 0.9s ease-out both;
+}
+
+@keyframes sayfaCevir {
+  from { transform: perspective(2400px) rotateY(0deg); filter: brightness(1); opacity: 1; }
+  80%  { opacity: 1; }
+  to   { transform: perspective(2400px) rotateY(-110deg); filter: brightness(0.45); opacity: 0; }
+}
+
+@keyframes sayfaGel {
+  from { transform: scale(0.96); opacity: 0.4; }
+  to   { transform: none; opacity: 1; }
+}
+
+/* Yedek: sayfa çevirmeyi desteklemeyen tarayıcılarda eski sayfa dönüp kaybolur */
+html.cevir-cik body {
+  transform-origin: left center;
+  animation: sayfaCevirYedek 0.55s ease-in forwards;
+}
+
+@keyframes sayfaCevirYedek {
+  to { transform: perspective(2400px) rotateY(-100deg); opacity: 0; filter: brightness(0.5); }
+}

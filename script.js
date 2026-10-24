@@ -84,3 +84,32 @@ function menuyuAyarla(ac) {
 dugme.addEventListener('click', () => menuyuAyarla(!yanMenu.classList.contains('acik')));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') menuyuAyarla(false); });
 document.addEventListener('click', (e) => { if (!yanMenu.contains(e.target)) menuyuAyarla(false); });
+
+// 5) SAYFA ÇEVİRME: yan menüdeki başlıklara tıklayınca sayfa çevrilerek açılır
+let menudenGidiyor = false;
+const gecisDestekli = 'onpageswap' in window; // Chrome, Edge, Opera, yeni Safari
+
+// Sayfa çevirme sadece yan menüden gidilince çalışsın (üst menüde çalışmasın)
+window.addEventListener('pageswap', (e) => {
+  if (e.viewTransition && !menudenGidiyor) e.viewTransition.skipTransition();
+});
+
+// Geri tuşuyla dönülünce ayarları sıfırla
+window.addEventListener('pageshow', () => {
+  menudenGidiyor = false;
+  document.documentElement.classList.remove('cevir-cik');
+});
+
+if (liste) {
+  liste.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0 || a.href === location.href) return;
+    menudenGidiyor = true;
+    // Tarayıcı sayfa çevirmeyi desteklemiyorsa yedek animasyonu oynat, sonra git
+    if (!gecisDestekli && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      e.preventDefault();
+      document.documentElement.classList.add('cevir-cik');
+      setTimeout(() => { location.href = a.href; }, 550);
+    }
+  });
+}
