@@ -91,6 +91,7 @@ function oyunKur(kap) {
     ilerleme.style.strokeDashoffset = CEVRE * (1 - kalan / SURE);
     sayi.textContent = Math.max(0, Math.ceil(kalan));
     zaman.classList.toggle('dusuk', kalan <= 5); // son 5 saniye kırmızı
+    ilerleme.style.opacity = kalan > 0 ? '1' : '0'; // süre bitince halkanın ucundaki nokta görünmesin
   }
 
   function cevapGoster(metin, sinif) {
@@ -125,6 +126,8 @@ function oyunKur(kap) {
     kart.dataset.durum = 'oyun';
     aktifOyun = oyun;
     soruGoster();
+    // Telefonda tuş takımı ekranda kalsın diye kartı görünür alana getir
+    kap.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     bitisZamani = performance.now() + SURE * 1000;
     halkayiGuncelle(SURE);
     sayac = setInterval(() => {

@@ -5,6 +5,10 @@
 // =========================================
 const MENU = [
   {
+    "baslik": "Ödevlerim",
+    "sayfa": "sayfalar/odevlerim.html"
+  },
+  {
     "baslik": "Konu Özetleri",
     "sayfa": "sayfalar/konu-ozetleri.html"
   },
@@ -17,8 +21,8 @@ const MENU = [
     "sayfa": "sayfalar/formuller.html"
   },
   {
-    "baslik": "Oyunlar",
-    "sayfa": "sayfalar/oyunlar.html"
+    "baslik": "Pratik",
+    "sayfa": "sayfalar/pratik.html"
   },
   {
     "baslik": "Kaynaklar",

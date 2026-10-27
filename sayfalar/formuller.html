@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="../style.css">
   <script src="../menu.js" defer></script>
   <script src="../script.js" defer></script>
+  <script src="../oturum.js" defer></script>
+  <script src="../arkaplan.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" defer></script>
@@ -19,11 +21,11 @@
 <body class="alt-sayfa" data-kok="../">
 
   <header class="ust-menu">
-    <a class="logo" href="../index.html">Mathsy</a>
+    <a class="logo" href="../index.html"><img class="logo-resim" src="../logo.png" alt="" onerror="this.remove()"><span>Mathsy</span></a>
     <div class="baglantilar">
-      <a href="../index.html#anasayfa">Ana Sayfa</a>
-      <a href="../index.html#hakkimda">Hakkımda</a>
-      <a href="../index.html#yakinda">Yakında</a>
+      <a href="../index.html">Ana Sayfa</a>
+      <a href="../index.html#hedeflerim">Hedeflerim</a>
+      <a href="../index.html#veliler">Veliler İçin</a>
       <a href="../index.html#iletisim">İletişim</a>
     </div>
   </header>
@@ -35,7 +37,7 @@
 
   <main class="alt-icerik">
     <h1 class="belir">Formüller</h1>
-    <p class="belir soluk">Aradığın formülü yaz, yapay zekâ ekrana getirsin.</p>
+    <p class="belir soluk">Aradığın formülü yaz. 5, 6 ve 7. sınıf seviyesinde, sade bir dille anlatılır.</p>
 
     <form id="arama-formu" class="arama belir" role="search">
       <input id="arama-girdi" type="search" placeholder="Örn: dairenin alanı, ikinci dereceden denklem" autocomplete="off" maxlength="120" aria-label="Formül ara">
@@ -43,9 +45,9 @@
     </form>
 
     <div class="ornekler belir">
-      <button type="button" data-ornek="dairenin alanı">dairenin alanı</button>
-      <button type="button" data-ornek="pisagor teoremi">pisagor teoremi</button>
-      <button type="button" data-ornek="ikinci dereceden denklem">ikinci dereceden denklem</button>
+      <button type="button" data-ornek="dikdörtgenin çevresi">dikdörtgenin çevresi</button>
+      <button type="button" data-ornek="üçgenin alanı">üçgenin alanı</button>
+      <button type="button" data-ornek="yüzde hesaplama">yüzde hesaplama</button>
     </div>
 
     <div id="sonuc" aria-live="polite"></div>

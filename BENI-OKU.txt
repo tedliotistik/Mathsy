@@ -4,15 +4,22 @@ index.html            Ana sayfa (Ana Sayfa, Hakkımda, Yakında, İletişim böl
 style.css             Tüm görünüm (renkler, fontlar, menü boyutları, efektler)
 script.js             Menü ve kaydırma / sayfa çevirme efektleri
 menu.js               Sol menüdeki başlıkların listesi (yeni sayfa eklemek için burası)
+oyun.js              Çarpma ve bölme oyunları (en üstte SURE = tur süresi)
+arkaplan.js          Hareketli ve tıklanınca tepki veren arka plan
+oturum.js            Giriş, çıkış, aktif süre (en üstte GIRIS_ADRESI = giriş sunucusunun adresi)
+ogretmen.js          Öğretmen paneli (öğrenci hesapları)
+giris.html           Giriş sayfası
+pratik.js            Pratik sayfası: GeoGebra ve keşif görevleri
+logo.png             (SENİN EKLEYECEĞİN) Logo dosyası; kök klasöre koyunca menüde otomatik görünür
 formuller.js          Formül arama (en üstte AI_ADRESI = yapay zekâ sunucusunun adresi)
 sayfalar/             Sol menüden açılan sayfalar
 dosyalar/             İndirilebilir PDF dosyaları (dosya adları dosyalar/BENI-OKU.txt içinde)
 sunucu/               Cloudflare'e yapıştırılan sunucu kodları (siteye YÜKLENMEZ, sadece saklama)
 
 DOLDURULACAK YERLER (index.html)
-- [Adın], [Üniversite adı], [Kendi ilgi alanın]
 - ornek@mail.com  ve  @kullanici_adin
-- style.css başındaki --hero-resmi satırı (BURAYA_RESIM_LINKI) = ana sayfa arka plan resmi
+- WhatsApp numarası: index.html içinde 90XXXXXXXXXX (başında 90, boşluksuz)
+- E-posta: index.html içinde ornek@mail.com
 
 SİTEYİ GÜNCELLEMEK
 Değiştirdiğin dosyayı GitHub'da repo'ya yeniden yükle (Add file > Upload files > Commit changes).

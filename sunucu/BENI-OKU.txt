@@ -1,10 +1,11 @@
-Bu klasördeki dosyalar siteye yüklenmez; Cloudflare Worker'ına yapıştırılır.
+Bu klasördeki dosyalar siteye yüklenmez; Cloudflare'e yapıştırılır.
 
-yapay-zeka-sunucusu-ucretsiz.js  -> ŞU AN KULLANILAN (Cloudflare Workers AI, ücretsiz kota)
-yapay-zeka-sunucusu.js           -> İSTEĞE BAĞLI (Claude API, ücretli; Anthropic anahtarı gerekir)
+giris-sunucusu.js                -> GİRİŞ SİSTEMİ (Worker + D1 veritabanı). Kurulum için veritabani.sql de gerekir.
+  Bindings : D1 database -> değişken adı DB
+  Variables: IZINLI_SITE (Text), KURULUM_SIFRESI (Secret)
+yapay-zeka-sunucusu-ucretsiz.js  -> FORMÜL ARAMA (Workers AI, ücretsiz kota) - ŞU AN KULLANILAN
+  Bindings : Workers AI -> değişken adı AI
+  Variables: IZINLI_SITE (Text)
+yapay-zeka-sunucusu.js           -> İSTEĞE BAĞLI (Claude API, ücretli)
 
-Cloudflare'de gerekli ayarlar (ücretsiz sürüm):
-- Bindings: Workers AI, adı AI
-- Variables: IZINLI_SITE = siteyi açan adresler, virgülle ayrılmış
-  Örn: https://mathsy.net,https://www.mathsy.net
-Yeni alan adı alınca IZINLI_SITE değerine eklemeyi unutma.
+Yeni alan adı alınca iki sunucuda da IZINLI_SITE değerine yeni adresleri ekle.

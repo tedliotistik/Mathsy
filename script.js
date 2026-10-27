@@ -113,3 +113,37 @@ if (liste) {
     }
   });
 }
+
+// 6) ADRES ÇUBUĞU: ana sayfada "index.html" ve "#anasayfa" görünmesin
+// Ana sayfada adres: kolejsmp.com/   |  Diğer bölümlerde: kolejsmp.com/#hakkimda
+function adresiTemizle(hash) {
+  try {
+    const yol = location.pathname.replace(/index\.html$/, '');
+    const bolum = (!hash || hash === '#anasayfa') ? '' : hash;
+    history.replaceState(null, '', yol + location.search + bolum);
+  } catch (e) { /* bilgisayardan açılan (file://) sayfalarda izin yok, sorun değil */ }
+}
+
+if (document.getElementById('anasayfa')) {
+  adresiTemizle(location.hash);
+
+  // Sayfa içi bağlantılara tıklanınca yumuşakça kaydır, adresi temiz tut
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const hedef = document.getElementById(a.getAttribute('href').slice(1));
+      if (!hedef) return;
+      e.preventDefault();
+      const azalt = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      hedef.scrollIntoView({ behavior: azalt ? 'auto' : 'smooth' });
+      adresiTemizle(a.getAttribute('href'));
+    });
+  });
+
+  // Kaydırırken hangi bölümdeysen adres de ona göre güncellensin
+  const adresGozcusu = new IntersectionObserver((kayitlar) => {
+    kayitlar.forEach((kayit) => {
+      if (kayit.isIntersecting) adresiTemizle('#' + kayit.target.id);
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  bolumler.forEach((bolum) => adresGozcusu.observe(bolum));
+}
