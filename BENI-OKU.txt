@@ -7,7 +7,11 @@ menu.js               Sol menüdeki başlıkların listesi (yeni sayfa eklemek i
 oyun.js              Çarpma ve bölme oyunları (en üstte SURE = tur süresi)
 arkaplan.js          Hareketli ve tıklanınca tepki veren arka plan
 oturum.js            Giriş, çıkış, aktif süre (en üstte GIRIS_ADRESI = giriş sunucusunun adresi)
-ogretmen.js          Öğretmen paneli (öğrenci hesapları)
+ogretmen.js          Öğrencilerim ve Öğrenci Ekle sayfalarının kodu
+odev-gonder.js       Ödev Gönder sayfası (öğrenci seçimi, PDF'den soru ekleme ve 4 soru türü)
+soru-bol.js          PDF sayfalarını soru soru ayırır (odev-gonder.js kullanır)
+odev.js              Öğrencinin ödev çözme ekranı (sayfalar/odev.html)
+odevlerim.js         Öğrencinin Ödevlerim sayfası
 giris.html           Giriş sayfası
 pratik.js            Pratik sayfası: GeoGebra ve keşif görevleri
 logo.png             (SENİN EKLEYECEĞİN) Logo dosyası; kök klasöre koyunca menüde otomatik görünür

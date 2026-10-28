@@ -732,3 +732,168 @@ main, footer { position: relative; z-index: 1; }
 @media (max-width: 720px) {
   .hesap { justify-self: center; margin-top: 6px; }
 }
+
+/* 22) ÖĞRETMEN PANELİ, ÖDEVLER */
+.geri { display: inline-block; margin-bottom: 14px; color: var(--soluk); text-decoration: none; font-size: 15px; }
+.geri:hover { color: var(--vurgu); }
+.panel-kartlar { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-top: 20px; }
+.panel-karti {
+  display: block; padding: 26px 24px; color: var(--yazi); text-decoration: none;
+  border: 1px solid var(--cizgi); border-radius: 14px; background: rgba(23, 18, 31, 0.85);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.panel-karti:hover { border-color: var(--vurgu); transform: translateY(-4px); }
+.panel-karti h3 { margin: 0 0 6px; font-size: 22px; }
+.panel-karti p { margin: 0; color: var(--soluk); font-size: 15px; line-height: 1.5; }
+
+.alt-icerik.genis .form-kart { max-width: 720px; }
+.secim-listesi { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; margin: 10px 0; }
+.secenek { display: flex; align-items: center; gap: 10px; margin: 0; padding: 6px 4px; color: var(--yazi); cursor: pointer; }
+.secenek input, .sec-satir input[type="radio"], .dy-satir input { width: auto; margin: 0; accent-color: var(--vurgu); flex: none; }
+.secenek-hepsi { color: var(--vurgu); font-weight: 600; }
+
+.soru-karti { margin: 14px 0; padding: 16px 18px; border: 1px solid var(--cizgi); border-radius: 12px; background: rgba(255, 255, 255, 0.03); }
+.soru-bas { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.soru-karti textarea {
+  display: block; width: 100%; margin-bottom: 8px; padding: 10px 12px; font: inherit; color: var(--yazi);
+  background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 8px; resize: vertical;
+}
+.soru-karti input[type="text"], .soru-karti input:not([type]) {
+  display: block; width: 100%; margin: 0 0 8px; padding: 9px 12px; font: inherit; color: var(--yazi);
+  background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 8px;
+}
+.sec-satir { display: flex; align-items: center; gap: 10px; }
+.sec-satir input:not([type="radio"]) { margin-bottom: 8px; }
+.dy-satir { display: flex; gap: 22px; padding: 4px 0 8px; }
+.dy-satir label { display: flex; align-items: center; gap: 6px; margin: 0; color: var(--yazi); cursor: pointer; }
+.soru-ekle { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.soru-ekle .buton { cursor: pointer; font-family: inherit; padding: 9px 16px; }
+
+.odev-karti {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px; padding: 18px 22px;
+  border: 1px solid var(--cizgi); border-radius: 14px; background: rgba(23, 18, 31, 0.85);
+}
+.odev-karti h3 { margin: 0 0 2px; font-size: 19px; }
+.odev-karti p { margin: 0; font-size: 14px; }
+.rozet { flex: none; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.rozet-bekliyor { background: rgba(255, 255, 255, 0.08); color: var(--soluk); }
+.rozet-kontrol { background: rgba(255, 200, 87, 0.15); color: var(--vurgu); }
+.rozet-tamam { background: rgba(89, 217, 142, 0.16); color: #8ff0b6; }
+
+/* 23) TELEFON: üst menü iki satır (logo + hesap, altında bağlantılar) */
+@media (max-width: 720px) {
+  .ust-menu {
+    grid-template-columns: 1fr auto; grid-template-areas: "logo hesap" "baglanti baglanti";
+    justify-items: stretch; align-items: center; padding: 8px 14px 6px; row-gap: 2px;
+  }
+  .logo { grid-area: logo; display: inline-flex; font-size: 20px; }
+  .logo-resim { height: 28px; }
+  .hesap { grid-area: hesap; justify-self: end; margin-top: 0; gap: 6px; }
+  .hesap-ad { max-width: 92px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+  .hesap-sure { padding: 1px 8px; font-size: 12px; }
+  .hesap-dugme { padding: 5px 11px; font-size: 12px; }
+  .baglantilar { grid-area: baglanti; justify-content: center; gap: 14px; overflow-x: auto; }
+  #yan-menu { top: 92px; }
+  .hero-icerik, .oyun-bolum { padding-top: calc(92px + var(--kapali-yuk) + 24px); }
+  .alt-icerik { padding-top: calc(92px + var(--kapali-yuk) + 24px); }
+  .odev-karti { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 720px) {
+  .baglantilar { gap: 10px; }
+  .baglantilar a { letter-spacing: 0.04em; font-size: 11.5px; }
+}
+
+/* düzeltme: formlardaki onay kutuları ve seçenek satırları */
+.form-kart .secenek { display: flex; margin: 0; font-size: 16px; }
+.form-kart .secenek input { width: auto; margin: 0; }
+.sec-satir { margin-bottom: 8px; }
+.sec-satir input:not([type="radio"]) { margin-bottom: 0; }
+
+/* 24) ÖDEV ÇÖZME EKRANI + PDF SORU KARTLARI
+   Bu bölümü style.css dosyasının EN ALTINA yapıştır. */
+
+/* Ödevlerim listesindeki sağ taraf (rozet + "Ödeve başla") */
+.odev-sag { display: flex; align-items: center; gap: 12px; flex: none; }
+.odev-sag .buton { padding: 8px 18px; font-size: 13px; }
+@media (max-width: 720px) { .odev-sag { flex-wrap: wrap; } }
+
+/* Ödev Gönder: PDF'den gelen sorunun önizlemesi ve şık seçimi */
+.gorsel-onizleme { max-height: 340px; overflow: auto; margin-bottom: 10px; border: 1px solid var(--cizgi); border-radius: 8px; background: #fff; }
+.gorsel-onizleme img { display: block; width: 100%; height: auto; }
+.sik-sec { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 2px 0 10px; }
+.sik-sec label { display: flex; align-items: center; gap: 6px; margin: 0; color: var(--yazi); font-weight: 600; cursor: pointer; }
+.sik-sec input { width: auto; margin: 0; accent-color: var(--vurgu); }
+.pdf-kutu { margin-bottom: 18px; }
+.pdf-kutu .satir { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0; }
+.pdf-kutu select { font: inherit; color: var(--yazi); background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 8px; padding: 9px 12px; }
+.pdf-kutu input[type="file"] { width: 100%; margin-top: 8px; padding: 10px; border: 1px dashed var(--cizgi); border-radius: 8px; background: transparent; color: var(--soluk); }
+
+/* Ödev çözme sayfası (odev.html) */
+.alt-icerik.quiz { max-width: 980px; }
+.quiz-bilgi { margin: 0 0 22px; padding: 16px 20px; border: 1px solid var(--cizgi); border-radius: 12px; background: rgba(255, 255, 255, 0.03); }
+.quiz-bilgi p { margin: 0 0 6px; }
+.quiz .buton, .quiz .oyun-buton { cursor: pointer; font-family: inherit; }
+.quiz .buton:disabled { opacity: 0.4; cursor: default; pointer-events: none; }
+.oyun-buton.bagli { display: inline-block; text-decoration: none; }
+
+/* Soru numaraları */
+.quiz-gezinti { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.quiz-no {
+  width: 38px; height: 38px; font: inherit; font-size: 14px; font-weight: 600; color: var(--soluk);
+  background: transparent; border: 1px solid var(--cizgi); border-radius: 8px; cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.quiz-no:hover { border-color: var(--vurgu); color: var(--yazi); }
+.quiz-no.cevapli { background: rgba(89, 217, 142, 0.14); border-color: rgba(89, 217, 142, 0.5); color: #8ff0b6; }
+.quiz-no.isaretli { box-shadow: inset 0 -4px 0 var(--vurgu); }
+.quiz-no.su-an { border-color: var(--vurgu); color: var(--vurgu); outline: 2px solid var(--vurgu); outline-offset: 1px; }
+
+/* Soru kartı */
+.quiz-kart { padding: 22px 24px 24px; border: 1px solid var(--cizgi); border-radius: 14px; background: rgba(23, 18, 31, 0.88); }
+.quiz-baslik { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+.quiz-baslik h2 { margin: 0; font-size: clamp(24px, 4vw, 32px); }
+.isaret-dugme { padding: 7px 16px; font-size: 13px; }
+.quiz-chipler { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.chip { padding: 3px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; background: rgba(255, 255, 255, 0.08); color: var(--soluk); }
+.chip-tamam { background: rgba(89, 217, 142, 0.16); color: #8ff0b6; }
+.chip-bos { background: rgba(255, 255, 255, 0.08); color: var(--soluk); }
+.chip-isaret { background: rgba(255, 200, 87, 0.15); color: var(--vurgu); }
+
+.soru-metin { margin: 0 0 16px; font-size: 19px; line-height: 1.6; white-space: pre-wrap; }
+
+/* PDF'den gelen soru: beyaz kâğıt gibi durur, altında A–E daireleri */
+.soru-kagit { margin-bottom: 18px; padding: 6px; border-radius: 10px; background: #fff; overflow-x: auto; box-shadow: 6px 6px 0 rgba(255, 200, 87, 0.18); }
+.soru-gorsel { display: block; width: 100%; height: auto; min-height: 60px; }
+@media (max-width: 720px) { .soru-gorsel { min-width: 520px; } } /* telefonda yazı küçülmesin, kâğıt yana kayar */
+
+.sik-grup { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 6px; }
+.sik-yuvarlak { position: relative; cursor: pointer; }
+.sik-yuvarlak input, .sik input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.daire {
+  display: grid; place-items: center; width: 52px; height: 52px;
+  font-family: var(--font-baslik); font-size: 22px; font-weight: 600; color: var(--yazi);
+  border: 2px solid var(--cizgi); border-radius: 50%; background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 3px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.1s;
+}
+.sik-yuvarlak:hover .daire { border-color: var(--vurgu); }
+.sik-yuvarlak input:checked + .daire { background: var(--vurgu); border-color: var(--vurgu); color: var(--zemin); transform: translateY(2px); }
+.sik-yuvarlak input:focus-visible + .daire, .sik input:focus-visible + .sik-harf { outline: 2px solid var(--vurgu); outline-offset: 3px; }
+
+/* Yazılı şıklar (çoktan seçmeli, doğru/yanlış) */
+.sik { position: relative; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; padding: 12px 16px; border: 2px solid var(--cizgi); border-radius: 12px; background: rgba(255, 255, 255, 0.03); cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+.sik:hover { border-color: rgba(255, 200, 87, 0.6); }
+.sik:has(input:checked) { border-color: var(--vurgu); background: rgba(255, 200, 87, 0.1); }
+.sik-harf { font-family: var(--font-baslik); font-weight: 600; color: var(--vurgu); min-width: 22px; }
+
+.cevap-giris { display: block; width: 100%; max-width: 420px; padding: 12px 16px; font: inherit; font-size: 18px; color: var(--yazi); background: var(--yuzey); border: 2px solid var(--cizgi); border-radius: 10px; }
+.cevap-giris:focus { outline: 0; border-color: var(--vurgu); }
+
+.quiz-alt { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+
+/* Gözden geçirme */
+.ozet-liste { display: grid; gap: 8px; margin: 14px 0; }
+.ozet-satir { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 14px; font: inherit; color: var(--yazi); text-align: left; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--cizgi); border-radius: 10px; cursor: pointer; transition: border-color 0.2s; }
+.ozet-satir:hover { border-color: var(--vurgu); }
+.ozet-satir > span:first-child { flex: 1; font-weight: 600; }
