@@ -1,7 +1,7 @@
 // =========================================
 // OTURUM: giriş, çıkış, aktif süre ve sayfa koruması
 // =========================================
-const GIRIS_ADRESI = "mathsy-sunucu.mathsy.workers.dev"; // giriş sunucusunun (Cloudflare Worker) adresi, örn. https://mathsy-giris.mathsy.workers.dev
+const GIRIS_ADRESI = "https://mathsy-sunucu.mathsy.workers.dev"; // giriş sunucusunun (Cloudflare Worker) adresi, örn. https://mathsy-giris.mathsy.workers.dev
 
 (() => {
   const kok = document.body.dataset.kok || '';
