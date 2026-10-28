@@ -1,0 +1,51 @@
+MATHSY SUNUCUSU KURULUMU (Cloudflare Worker + D1)
+=================================================
+Bu sunucu giriş, öğrenciler, ödevler, teslim, kontrol ve yapay zekâ geri bildirimini tek başına yapar.
+Eski veritabanı sunucundan bağımsızdır: ESKİ ÖĞRENCİLER YENİ VERİTABANINDA YOKTUR, "Öğrenci Ekle"den yeniden ekle.
+(Menü adları zamanla değişebilir; aşağıdaki adımları panelde en yakın başlıkla bul.)
+
+1) VERİTABANI (D1)
+   Cloudflare paneli > Storage & Databases > D1 SQL Database > Create database
+   Ad: mathsy-db  >  Create
+   Veritabanını aç > Console sekmesi > sunucu/schema.sql dosyasının TAMAMINI yapıştır > Execute
+
+2) WORKER
+   Workers & Pages > Create > Create Worker
+   Ad: mathsy-sunucu  >  Deploy
+   Sonra Edit code > sağdaki dosyadaki her şeyi sil > sunucu/mathsy-sunucu.js içeriğini yapıştır > Deploy
+
+3) BAĞLANTILAR (Worker > Settings > Bindings > Add)
+   - D1 database    : Variable name = DB   | veritabanı = mathsy-db
+   - Workers AI     : Variable name = AI   (yapay zekâ geri bildirimi için)
+   Not: İsimleri BÜYÜK harfle, aynen böyle yaz. Eklemeden sonra Deploy et.
+
+4) GİZLİ BİLGİLER (Worker > Settings > Variables and Secrets > Add, tür: Secret)
+   - OGRETMEN_AD    : senin giriş kullanıcı adın (örn. hoca)
+   - OGRETMEN_SIFRE : senin şifren (en az 8 karakter)  <- sadece burada durur, koda YAZMA
+   İsteğe bağlı (tür: Text):
+   - OGRETMEN_GORUNTU : sağ üstte görünecek ad (örn. Hoca)
+   - IZINLI_ADRESLER  : sitenin adresi, örn. https://kolejsmp.com,https://www.kolejsmp.com
+                        (boş bırakırsan her siteden erişilebilir; alan adını değiştirince buradan güncelle)
+   - AI_MODEL         : yapay zekâ modelini değiştirmek istersen (varsayılan Llama 3.3 70B)
+
+5) ADRESİ SİTEYE YAZ
+   Worker sayfasındaki adres (https://mathsy-sunucu.XXXX.workers.dev) 
+   oturum.js dosyasının en üstündeki GIRIS_ADRESI = "..." satırına yazılır (sonunda / olmasın).
+   Sonra siteyi GitHub'a yükle.
+
+6) DENEME
+   Tarayıcıda  <worker adresi>/ben  aç: {"hata":"Giriş yapman gerekiyor."} görürsen sunucu çalışıyor.
+   Site > Giriş yap > OGRETMEN_AD / OGRETMEN_SIFRE ile gir > Öğrenci Ekle > Ödev Gönder.
+
+SORUN GİDERME
+ - Girişte "Giriş sistemi henüz kurulmadı": oturum.js'te GIRIS_ADRESI boş.
+ - Tarayıcı konsolunda CORS hatası: IZINLI_ADRESLER'e sitenin tam adresini (https://...) yaz ya da boş bırak.
+ - 500 / "Sunucuda bir sorun oluştu": DB bağlantısı (adı DB) eksik ya da schema.sql çalıştırılmamış.
+ - 1102 / CPU hatası girişte: mathsy-sunucu.js en üstünde PBKDF2_TUR = 30000 değerini 10000'e düşür.
+ - Yapay zekâ yorumu gelmiyor: AI bağlantısı (adı AI) eksik olabilir. Bu durumda sistem kuralla yazılmış kısa bir
+   özet gösterir; Ödev Kontrol'de "Yorumu yenile" ile tekrar denenebilir.
+
+GÜVENLİK
+ - Bu klasördeki kodda şifre ya da anahtar yoktur; GitHub'a yüklense de sorun olmaz. Şifreni koda ASLA yazma.
+ - Cloudflare > Security > WAF > Rate limiting ile /giris adresine dakikada birkaç denemeyle sınır koyabilirsin.
+ - Öğrenci şifresi unutulursa Öğrenci Ekle'de aynı kullanıcı adıyla yeni şifre yaz.

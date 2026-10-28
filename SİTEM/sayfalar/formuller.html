@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formüller | Mathsy</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../menu.js" defer></script>
+  <script src="../script.js" defer></script>
+  <script src="../oturum.js" defer></script>
+  <script src="../arkaplan.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" defer></script>
+  <script src="../formuller.js" defer></script>
+</head>
+<body class="alt-sayfa" data-kok="../">
+
+  <header class="ust-menu">
+    <a class="logo" href="../index.html"><img class="logo-resim" src="../logo.png" alt="" onerror="this.remove()"><span>Mathsy</span></a>
+    <div class="baglantilar">
+      <a href="../index.html">Ana Sayfa</a>
+      <a href="../index.html#hedeflerim">Hedeflerim</a>
+      <a href="../index.html#veliler">Veliler İçin</a>
+      <a href="../index.html#iletisim">İletişim</a>
+    </div>
+  </header>
+  <aside id="yan-menu" aria-label="Site menüsü">
+    <button id="menu-dugme" type="button" aria-expanded="false" aria-controls="yan-liste" aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <span class="menu-baslik">Menü</span>
+    <nav id="yan-liste"></nav>
+  </aside>
+
+  <main class="alt-icerik">
+    <h1 class="belir">Formüller</h1>
+    <p class="belir soluk">Aradığın formülü yaz. 5, 6 ve 7. sınıf seviyesinde, sade bir dille anlatılır.</p>
+
+    <form id="arama-formu" class="arama belir" role="search">
+      <input id="arama-girdi" type="search" placeholder="Örn: dairenin alanı, ikinci dereceden denklem" autocomplete="off" maxlength="120" aria-label="Formül ara">
+      <button class="buton" type="submit">Ara</button>
+    </form>
+
+    <div class="ornekler belir">
+      <button type="button" data-ornek="dikdörtgenin çevresi">dikdörtgenin çevresi</button>
+      <button type="button" data-ornek="üçgenin alanı">üçgenin alanı</button>
+      <button type="button" data-ornek="yüzde hesaplama">yüzde hesaplama</button>
+    </div>
+
+    <div id="sonuc" aria-live="polite"></div>
+  </main>
+
+  <footer>© 2026 Mathsy</footer>
+
+</body>
+</html>

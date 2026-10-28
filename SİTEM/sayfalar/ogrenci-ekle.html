@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Öğrenci Ekle | Mathsy</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../menu.js" defer></script>
+  <script src="../script.js" defer></script>
+  <script src="../oturum.js" defer></script>
+  <script src="../arkaplan.js" defer></script>
+  <script src="../ogretmen.js" defer></script>
+</head>
+<body class="alt-sayfa" data-kok="../" data-giris-gerekli data-rol="ogretmen">
+
+  <header class="ust-menu">
+    <a class="logo" href="../index.html"><img class="logo-resim" src="../logo.png" alt="" onerror="this.remove()"><span>Mathsy</span></a>
+    <div class="baglantilar">
+      <a href="../index.html">Ana Sayfa</a>
+      <a href="../index.html#hedeflerim">Hedeflerim</a>
+      <a href="../index.html#veliler">Veliler İçin</a>
+      <a href="../index.html#iletisim">İletişim</a>
+    </div>
+  </header>
+  <aside id="yan-menu" aria-label="Site menüsü">
+    <button id="menu-dugme" type="button" aria-expanded="false" aria-controls="yan-liste" aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <span class="menu-baslik">Menü</span>
+    <nav id="yan-liste"></nav>
+  </aside>
+
+  <main class="alt-icerik genis">
+    <a class="geri" href="ogretmen.html">← Öğretmen Paneli</a>
+    <h1>Öğrenci Ekle</h1>
+    <form id="ogrenci-formu" class="form-kart">
+      <p class="soluk">Veli ve öğrenci aynı hesabı kullanır. Var olan bir öğrencinin adını ya da sınıfını değiştirmek için aynı kullanıcı adını yazıp şifreyi boş bırak.</p>
+      <label>Öğrencinin adı<input id="og-goruntu" maxlength="40" placeholder="Örn. Ali Yılmaz" required></label>
+      <label>Sınıf
+        <select id="og-sinif" required>
+          <option value="">Seç…</option>
+          <option value="5">5. sınıf</option>
+          <option value="6">6. sınıf</option>
+          <option value="7">7. sınıf</option>
+        </select>
+      </label>
+      <label>Kullanıcı adı<input id="og-ad" maxlength="30" autocapitalize="none" autocomplete="off" placeholder="Örn. ali.yilmaz" required></label>
+      <label>Şifre
+        <div class="satir">
+          <input id="og-sifre" type="text" autocomplete="off" placeholder="En az 6 karakter">
+          <button id="og-uret" type="button" class="buton">Üret</button>
+        </div>
+      </label>
+      <p id="og-mesaj" class="mesaj" role="alert"></p>
+      <button class="oyun-buton" type="submit">Kaydet</button>
+    </form>
+  </main>
+
+  <footer>© 2026 Mathsy</footer>
+
+</body>
+</html>
