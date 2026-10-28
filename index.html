@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mathsy | 5, 6 ve 7. sınıf özel ders desteği</title>
+  <meta name="description" content="5, 6 ve 7. sınıf öğrencileri için MEB müfredatıyla uyumlu özel ders: uzaktan ödev, yapay zekâ destekli konu analizi ve eksiklere odaklı dersler.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="menu.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="oturum.js" defer></script>
+  <script src="oyun.js" defer></script>
+  <script src="arkaplan.js" defer></script>
+</head>
+<body data-kok="">
+
+  <header class="ust-menu">
+    <a class="logo" href="#anasayfa"><img class="logo-resim" src="logo.png" alt="" onerror="this.remove()"><span>Mathsy</span></a>
+    <div class="baglantilar">
+      <a href="#anasayfa">Ana Sayfa</a>
+      <a href="#hedeflerim">Hedeflerim</a>
+      <a href="#veliler">Veliler İçin</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+  </header>
+  <aside id="yan-menu" aria-label="Site menüsü">
+    <button id="menu-dugme" type="button" aria-expanded="false" aria-controls="yan-liste" aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <span class="menu-baslik">Menü</span>
+    <nav id="yan-liste"></nav>
+  </aside>
+
+  <main>
+
+    <!-- 1) ANA SAYFA -->
+    <section id="anasayfa" class="hero">
+      <div class="hero-icerik">
+        <div class="hero-yazi">
+          <h1 class="belir">Matematik hep yanında</h1>
+          <p class="alt-baslik belir">5, 6 ve 7. sınıflar için MEB müfredatıyla uyumlu özel ders destek sitesi</p>
+          <div class="hero-dugmeler belir">
+            <a class="buton" href="#iletisim">Ders talep et</a>
+            <a class="buton ikincil" href="#hedeflerim">Nasıl çalışıyoruz?</a>
+          </div>
+        </div>
+        <div class="oyun belir" data-oyun="carpma"></div>
+      </div>
+    </section>
+
+    <!-- 2) HEDEFLERİM -->
+    <section id="hedeflerim" class="bolum">
+      <div class="icerik">
+        <h2 class="belir">Hedeflerim</h2>
+        <p class="hedef-metin belir">Özel ders öğrencilerimin matematiği sadece ders saatinde değil, hafta boyunca öğrenmesini istiyorum. Bu yüzden ödevleri öğrencilerime bu site üzerinden uzaktan gönderiyorum. Öğrenci ödevini evinde çözüyor, ben de cevapları tek tek kontrol ediyorum. Ardından yapay zekâ destekli bir konu analiziyle öğrencinin hangi konularda güçlü, hangi konularda daha çok çalışması gerektiğini işaretliyorum. Bir sonraki dersi tahmine göre değil, bu analize göre planlıyorum: eksik kalan konuya odaklanıyor, öğrencinin zaten iyi olduğu yerde zaman kaybetmiyoruz. Böylece öğrenci nerede takıldığını görüyor, ben de ders başında vakit kaybetmeden doğru yerden başlıyorum. Tüm çalışmalar 5, 6 ve 7. sınıf MEB kazanımlarıyla paralel ilerliyor, okuldaki konuları destekliyor. Hedefim, her öğrencinin kendi hızında ilerlediği, eksiğini görebildiği ve matematikten korkmak yerine merak etmeye başladığı bir öğrenme düzeni kurmak.</p>
+      </div>
+    </section>
+
+    <!-- 3) VELİLER İÇİN (ders talebine yönlendiren bölüm) -->
+    <section id="veliler" class="bolum">
+      <div class="icerik">
+        <h2 class="belir">Eksik konu tahminle değil, veriyle bulunur</h2>
+        <p class="belir">Çocuğunuz derste anlıyor gibi görünüp evde takılıyor olabilir. Ödevler sayesinde bu takılmayı ders gününü beklemeden görüyor, bir sonraki dersi tam o noktaya göre planlıyorum.</p>
+        <div class="uc-sutun">
+          <div class="panel belir"><h3>Evde takip</h3><p>Ödevler uzaktan gönderilir, öğrenci evinde çözer, ben tek tek kontrol ederim.</p></div>
+          <div class="panel belir"><h3>Konu bazlı analiz</h3><p>Yapay zekâ destekli analizle hangi konuda güçlü, hangisinde destek lazım net görünür.</p></div>
+          <div class="panel belir"><h3>Odaklı ders</h3><p>Her ders, analizde çıkan eksik konuya odaklanır. Ders süresi boşa gitmez.</p></div>
+        </div>
+        <p class="belir soluk">5, 6 ve 7. sınıf: okuldaki konularla paralel ilerler.</p>
+        <a class="buton belir" href="#iletisim">Çocuğum için ders talep etmek istiyorum</a>
+      </div>
+    </section>
+
+    <!-- 4) İLETİŞİM -->
+    <section id="iletisim" class="bolum">
+      <div class="icerik">
+        <h2 class="belir">İletişim</h2>
+        <p class="belir">Ders talebi, sınıf düzeyi ve müsait günler için bana yazabilirsiniz.</p>
+        <div class="iletisim-dugmeler belir">
+          <a class="buton" href="https://wa.me/90XXXXXXXXXX?text=Merhaba%2C%20ders%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.">WhatsApp’tan yaz</a>
+          <a class="buton ikincil" href="mailto:ornek@mail.com">E-posta ile yaz</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Mathsy</footer>
+
+</body>
+</html>

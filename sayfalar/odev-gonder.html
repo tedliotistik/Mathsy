@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ödev Gönder | Mathsy</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../menu.js" defer></script>
+  <script src="../script.js" defer></script>
+  <script src="../oturum.js" defer></script>
+  <script src="../arkaplan.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="../soru-bol.js" defer></script>
+  <script src="../odev-gonder.js" defer></script>
+</head>
+<body class="alt-sayfa" data-kok="../" data-giris-gerekli data-rol="ogretmen">
+
+  <header class="ust-menu">
+    <a class="logo" href="../index.html"><img class="logo-resim" src="../logo.png" alt="" onerror="this.remove()"><span>Mathsy</span></a>
+    <div class="baglantilar">
+      <a href="../index.html">Ana Sayfa</a>
+      <a href="../index.html#hedeflerim">Hedeflerim</a>
+      <a href="../index.html#veliler">Veliler İçin</a>
+      <a href="../index.html#iletisim">İletişim</a>
+    </div>
+  </header>
+  <aside id="yan-menu" aria-label="Site menüsü">
+    <button id="menu-dugme" type="button" aria-expanded="false" aria-controls="yan-liste" aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <span class="menu-baslik">Menü</span>
+    <nav id="yan-liste"></nav>
+  </aside>
+
+  <main class="alt-icerik genis">
+    <a class="geri" href="ogretmen.html">← Öğretmen Paneli</a>
+    <h1>Ödev Gönder</h1>
+    <p class="soluk">Öğrencileri seç, soruları PDF’den ya da elle ekle, gönder.</p>
+
+    <section class="form-kart">
+      <h3>1. Öğrenciler</h3>
+      <label class="secenek secenek-hepsi"><input type="checkbox" id="od-hepsi"><span>Hepsini seç</span></label>
+      <div id="od-ogrenciler" class="secim-listesi">Yükleniyor…</div>
+      <p id="od-sayi" class="soluk">0 öğrenci seçildi</p>
+    </section>
+
+    <section class="form-kart">
+      <h3>2. Ödev</h3>
+      <label>Ödev başlığı<input id="od-baslik" maxlength="80" placeholder="Örn. Kesirler 1"></label>
+
+    <div class="pdf-kutu">
+      <h3>PDF’den soru ekle</h3>
+      <p class="soluk">Sorularının olduğu PDF’yi seç. Site soruları otomatik ayırır; öğrenci PDF’yi indirmeden sitede çözer.</p>
+      <div class="satir">
+        <select id="pdf-sik" aria-label="Şık sayısı">
+          <option value="4">4 şık (A–D)</option>
+          <option value="5" selected>5 şık (A–E)</option>
+          <option value="3">3 şık (A–C)</option>
+        </select>
+        <select id="pdf-mod" aria-label="Bölme yöntemi">
+          <option value="soru" selected>Soru numaralarından ayır (1., 2., 3.)</option>
+          <option value="sayfa">Her sayfa bir soru</option>
+        </select>
+      </div>
+      <input id="pdf-dosya" type="file" accept="application/pdf" aria-label="PDF dosyası">
+      <p id="pdf-durum" class="mesaj" aria-live="polite"></p>
+      <p class="soluk">Cevap anahtarı (isteğe bağlı, örn. ABCDEABCDA)</p>
+      <div class="satir">
+        <input id="pdf-anahtar" maxlength="200" placeholder="ABCDE..." aria-label="Cevap anahtarı">
+        <button id="pdf-uygula" type="button" class="buton">Uygula</button>
+      </div>
+    </div>
+
+      <div id="od-sorular"></div>
+      <div class="soru-ekle">
+        <button type="button" class="buton ikincil" data-soru-turu="sec">+ Çoktan seçmeli</button>
+        <button type="button" class="buton ikincil" data-soru-turu="dy">+ Doğru / Yanlış</button>
+        <button type="button" class="buton ikincil" data-soru-turu="bosluk">+ Boşluk doldurma</button>
+        <button type="button" class="buton ikincil" data-soru-turu="kisa">+ Kısa cevap</button>
+      </div>
+      <p id="od-mesaj" class="mesaj" role="alert"></p>
+      <button id="od-gonder" class="oyun-buton" type="button">Ödevi gönder</button>
+    </section>
+  </main>
+
+  <footer>© 2026 Mathsy</footer>
+
+</body>
+</html>

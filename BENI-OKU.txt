@@ -1,0 +1,69 @@
+MATHSY SİTESİ
+=============
+index.html            Ana sayfa (Ana Sayfa, Hakkımda, Yakında, İletişim bölümleri)
+style.css             Tüm görünüm (renkler, fontlar, menü boyutları, efektler)
+script.js             Menü ve kaydırma / sayfa çevirme efektleri
+menu.js               Sol menüdeki başlıkların listesi (yeni sayfa eklemek için burası)
+oyun.js              Çarpma ve bölme oyunları (en üstte SURE = tur süresi)
+arkaplan.js          Hareketli ve tıklanınca tepki veren arka plan
+oturum.js            Giriş, çıkış, aktif süre (en üstte GIRIS_ADRESI = giriş sunucusunun adresi)
+ogretmen.js          Öğrenci Listesi, Öğrenci Ekle ve panel sayfalarının kodu
+odev-gonder.js       Ödev Gönder sayfası (öğrenci seçimi, PDF'den soru ekleme ve 4 soru türü)
+soru-bol.js          PDF sayfalarını soru soru ayırır (odev-gonder.js kullanır)
+odev.js              Öğrencinin ödev çözme ekranı (sayfalar/odev.html)
+odev-kontrol.js      Ödev Kontrol: gelen ödevler, yapay zekâ yorumu, onaylama
+odevlerim.js         Öğrencinin Ödevlerim sayfası
+giris.html           Giriş sayfası
+pratik.js            Pratik sayfası: GeoGebra ve keşif görevleri
+logo.png             (SENİN EKLEYECEĞİN) Logo dosyası; kök klasöre koyunca menüde otomatik görünür
+formuller.js          Formül arama (en üstte AI_ADRESI = yapay zekâ sunucusunun adresi)
+sayfalar/             Sol menüden açılan sayfalar. Öğretmen: ogretmen, ogrenci-listesi, odev-gonder, ogrenci-ekle, odev-kontrol. Öğrenci: odevlerim, odev
+dosyalar/             İndirilebilir PDF dosyaları (dosya adları dosyalar/BENI-OKU.txt içinde)
+sunucu/               Cloudflare'e yapıştırılan sunucu: mathsy-sunucu.js, schema.sql, KURULUM.txt (içinde şifre yok)
+
+DOLDURULACAK YERLER (index.html)
+- ornek@mail.com  ve  @kullanici_adin
+- WhatsApp numarası: index.html içinde 90XXXXXXXXXX (başında 90, boşluksuz)
+- E-posta: index.html içinde ornek@mail.com
+
+SİTEYİ GÜNCELLEMEK
+Değiştirdiğin dosyayı GitHub'da repo'ya yeniden yükle (Add file > Upload files > Commit changes).
+Ardından siteyi Ctrl + F5 ile yenile.
+
+
+=========================================================
+DEĞİŞTİRİLMESİ GEREKEN YERLER (NOTLAR)
+=========================================================
+1) oturum.js  (en üst satır)
+   const GIRIS_ADRESI = "";   ->  Cloudflare'de kurduğun mathsy-sunucu Worker'ının adresi
+   Örnek: "https://mathsy-sunucu.mathsy.workers.dev"   (sonunda / olmasın)
+   Boş kalırsa giriş çalışmaz.
+
+2) Cloudflare paneli (sunucu/KURULUM.txt'te adım adım)
+   - D1 veritabanı kur, sunucu/schema.sql'i Console'da çalıştır
+   - Worker'a bağlantı ekle: DB (D1) ve AI (Workers AI)
+   - Secret ekle: OGRETMEN_AD ve OGRETMEN_SIFRE (öğretmen girişin bunlardır)
+   - İsteğe bağlı: IZINLI_ADRESLER = sitenin adresi (alan adı değişince burayı güncelle)
+
+3) formuller.js  (en üst satır)
+   const AI_ADRESI = "https://mathsy-ai.mathsy.workers.dev";   (formül aramanın yapay zekâ sunucusu)
+   Şu an dolu; kendi adresin farklıysa değiştir. Ödev geri bildirimi bu adresi KULLANMAZ.
+
+4) index.html
+   90XXXXXXXXXX  ->  WhatsApp numaran (başında 90, boşluksuz)   [iletişim bölümünde]
+   ornek@mail.com -> e-posta adresin
+   Not: Canlı sitende bunları zaten doldurduysan bu dosyayı ÜZERİNE YAZMA.
+
+5) style.css  (en üst, :root içinde)
+   --hero-resmi: url("BURAYA_RESIM_LINKI");   ->  ana sayfa arka plan resmi (istersen)
+
+6) logo.png (SENİN EKLEYECEĞİN)
+   Ana klasöre koy; yoksa menüde sadece "Mathsy" yazısı görünür.
+
+7) Alan adı değişince (kolejsmp.com -> yeni adres)
+   - Kodda alan adına bağlı bir yer yok; sadece Worker'daki IZINLI_ADRESLER'i (kullandıysan) güncelle.
+   - script.js'teki "kolejsmp.com" ifadesi sadece yorum satırıdır.
+
+8) Eski veritabanı sunucusu
+   Yeni sunucu ayrı bir veritabanı kullanır. Eski öğrenci hesapları taşınmaz; Öğrenci Ekle'den yeniden ekle.
+   Yeni sunucu çalıştığını doğruladıktan sonra eski Worker'ı silebilirsin.
